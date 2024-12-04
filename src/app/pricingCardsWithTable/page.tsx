@@ -14,7 +14,8 @@ export default function PricingCardsWithTable() {
             <PricingSection />
           </ScrollArea>
         }
-        componentCode={"code.."}
+        shadcnuiComponentsUsed={["badge", "button", "tabs", "tooltip"]}
+        externalLibrariesUsed={["@number-flow/react", "lucide-react"]}
       />
     </div>
   );

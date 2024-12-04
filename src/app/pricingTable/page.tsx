@@ -14,7 +14,8 @@ export default function PricingCards() {
             <PricingSection />
           </ScrollArea>
         }
-        componentCode={"code.."}
+        shadcnuiComponentsUsed={["button", "tooltip"]}
+        externalLibrariesUsed={["lucide-react"]}
       />
     </div>
   );

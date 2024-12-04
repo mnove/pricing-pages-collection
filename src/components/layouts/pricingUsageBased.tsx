@@ -3,9 +3,9 @@
 import { cn } from "@/lib/utils";
 import NumberFlow from "@number-flow/react";
 import { useState } from "react";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Slider } from "../ui/slider";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Slider } from "@/components/ui/slider";
 
 export default function PricingUsageBased() {
   const [sliderValue, setSliderValue] = useState(6);

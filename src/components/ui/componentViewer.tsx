@@ -10,7 +10,6 @@ type ComponetViewerProps = {
   name: string;
   description: string;
   componentPreview: React.ReactNode;
-  componentCode: string;
   shadcnuiComponentsUsed?: string[];
   externalLibrariesUsed?: string[];
 };

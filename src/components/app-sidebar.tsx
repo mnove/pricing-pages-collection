@@ -11,8 +11,10 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import * as React from "react";
+import { Badge } from "./ui/badge";
 
 const data = {
   versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
@@ -47,10 +49,11 @@ const data = {
           title: "Usage Based - Simple",
           url: "/pricingUsageBased",
         },
-        // {
-        //   title: "Usage Based - With Description (Cooming Soon)",
-        //   url: "#",
-        // },
+        {
+          title: "Usage Based - with card",
+          url: "",
+          comingSoon: true,
+        },
       ],
     },
   ],
@@ -60,9 +63,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <h2 className="text text-base font-semibold py-2">
+        <Link href="/" className="text text-base font-semibold py-2">
+          {" "}
           Shadcn/ui pricing collection
-        </h2>
+        </Link>
       </SidebarHeader>
       <SidebarContent>
         {/* We create a SidebarGroup for each parent. */}
@@ -74,7 +78,19 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 {item.items.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
-                      <Link href={item.url}>{item.title}</Link>
+                      <Link
+                        href={item.url}
+                        className={cn(
+                          item.comingSoon ? "text-muted-foreground" : "text"
+                        )}
+                      >
+                        {item.title}
+                        {item.comingSoon && (
+                          <Badge variant="secondary" className="ml-2">
+                            Coming
+                          </Badge>
+                        )}
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}

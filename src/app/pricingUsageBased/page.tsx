@@ -14,7 +14,8 @@ export default function PricingUsageBased() {
             <PricingSection />
           </ScrollArea>
         }
-        componentCode={"code.."}
+        shadcnuiComponentsUsed={["button", "input", "slider"]}
+        externalLibrariesUsed={["@number-flow/react"]}
       />
     </div>
   );

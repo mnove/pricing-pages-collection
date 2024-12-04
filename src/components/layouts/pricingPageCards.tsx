@@ -48,7 +48,7 @@ export default function PricingSection() {
           </p>
           <div className=" flex flex-row items-center justify-center space-x-2 text-center">
             <Tabs
-              defaultValue="monthly"
+              defaultValue="yearly"
               className=""
               onValueChange={(tab) => handlePlanChange(tab as PlanType)}
             >

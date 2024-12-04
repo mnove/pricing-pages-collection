@@ -11,7 +11,6 @@ export default function PricingCards() {
         componentPreview={<PricingSection />}
         shadcnuiComponentsUsed={["badge", "button", "tabs"]}
         externalLibrariesUsed={["@number-flow/react", "lucide-react"]}
-        componentCode={"code.."}
       />
     </div>
   );
