@@ -62,11 +62,13 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
-      <SidebarHeader>
+      <SidebarHeader className="flex flex-row">
         <Link href="/" className="text text-base font-semibold py-2">
-          {" "}
-          Shadcn/ui pricing collection
+          Pricing pages collection
         </Link>
+        <Badge variant="outline" className="">
+          beta
+        </Badge>
       </SidebarHeader>
       <SidebarContent>
         {/* We create a SidebarGroup for each parent. */}

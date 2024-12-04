@@ -72,7 +72,7 @@ export default function RootLayout({
                   <Separator orientation="vertical" className="mr-2 h-4" />
                   <div className="ml-auto grow-0">
                     <Button variant="outline" size="icon" asChild>
-                      <Link href="https://github.com" target="_blank">
+                      <Link href="https://github.com/mnove" target="_blank">
                         <GithubIcon />
                       </Link>
                     </Button>
