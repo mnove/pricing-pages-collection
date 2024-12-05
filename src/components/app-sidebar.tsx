@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Sidebar,
   SidebarContent,
@@ -6,15 +8,23 @@ import {
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarHeader,
+  SidebarInset,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarProvider,
   SidebarRail,
+  SidebarTrigger,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import * as React from "react";
 import { Badge } from "./ui/badge";
+import { Separator } from "./ui/separator";
+import { Button } from "./ui/button";
+import { GithubIcon } from "lucide-react";
+import { ModeToggle } from "./ui/themeToggle";
 
 const data = {
   versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
@@ -38,6 +48,10 @@ const data = {
           url: "/pricingCards",
         },
         {
+          title: "Cards 2",
+          url: "/pricingCards2",
+        },
+        {
           title: "Table",
           url: "/pricingTable",
         },
@@ -59,7 +73,40 @@ const data = {
   ],
 };
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function AppSidebar({
+  children,
+  ...props
+}: React.ComponentProps<typeof Sidebar>) {
+  return (
+    <SidebarProvider>
+      <MainSidebar props={props} />
+      <SidebarInset>
+        <header className="flex sticky top-0 bg-background h-12 shrink-0 items-center gap-2 border-b px-4 z-50">
+          <SidebarTrigger className="-ml-1" />
+          <Separator orientation="vertical" className="mr-2 h-4" />
+          <div className="ml-auto grow-0">
+            <Button variant="outline" size="icon" asChild>
+              <Link href="https://github.com/mnove" target="_blank">
+                <GithubIcon />
+              </Link>
+            </Button>
+          </div>
+          <div className=" grow-0">
+            <ModeToggle />
+          </div>
+        </header>
+        <div className="flex flex-1 flex-col gap-4 p-4">{children}</div>
+      </SidebarInset>
+    </SidebarProvider>
+  );
+}
+
+const MainSidebar = ({
+  props,
+}: {
+  props: React.ComponentProps<typeof Sidebar>;
+}) => {
+  const { setOpenMobile } = useSidebar();
   return (
     <Sidebar {...props}>
       <SidebarHeader className="flex flex-row">
@@ -85,6 +132,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                         className={cn(
                           item.comingSoon ? "text-muted-foreground" : "text"
                         )}
+                        onClick={() => setOpenMobile(false)}
                       >
                         {item.title}
                         {item.comingSoon && (
@@ -117,4 +165,4 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarFooter>
     </Sidebar>
   );
-}
+};
