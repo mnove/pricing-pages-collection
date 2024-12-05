@@ -1,20 +1,10 @@
 import { AppSidebar } from "@/components/app-sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Separator } from "@/components/ui/separator";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@/components/ui/sidebar";
-import { ModeToggle } from "@/components/ui/themeToggle";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
-import { GithubIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import Script from "next/script";
+import "./globals.css";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -64,26 +54,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <TooltipProvider>
-            <SidebarProvider>
-              <AppSidebar />
-              <SidebarInset>
-                <header className="flex sticky top-0 bg-background h-12 shrink-0 items-center gap-2 border-b px-4 z-50">
-                  <SidebarTrigger className="-ml-1" />
-                  <Separator orientation="vertical" className="mr-2 h-4" />
-                  <div className="ml-auto grow-0">
-                    <Button variant="outline" size="icon" asChild>
-                      <Link href="https://github.com/mnove" target="_blank">
-                        <GithubIcon />
-                      </Link>
-                    </Button>
-                  </div>
-                  <div className=" grow-0">
-                    <ModeToggle />
-                  </div>
-                </header>
-                <div className="flex flex-1 flex-col gap-4 p-4">{children}</div>
-              </SidebarInset>
-            </SidebarProvider>
+            <AppSidebar>{children}</AppSidebar>
           </TooltipProvider>
         </ThemeProvider>
       </body>
