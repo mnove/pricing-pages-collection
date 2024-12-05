@@ -1,6 +1,7 @@
 {
   "name": "pricing-pages-collection",
   "version": "0.1.0",
+  "author": "mnove",
   "private": true,
   "scripts": {
     "dev": "next dev",

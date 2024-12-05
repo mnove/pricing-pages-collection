@@ -1,9 +1,13 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { extractCodeFromFilePath } from "@/lib/code";
 import { Badge } from "./badge";
-import CodePreview from "./code-preview";
+import CodePreview from "./codePreview";
 import CodeInput from "./codeInput";
 import CodeRenderer from "./codeRendered";
+
+const getFilename = (filePath: string): string => {
+  return filePath.split("/").pop() || "";
+};
 
 type ComponetViewerProps = {
   filePath: string;
@@ -22,6 +26,7 @@ export const ComponentViewer = ({
   shadcnuiComponentsUsed = [],
   externalLibrariesUsed = [],
 }: ComponetViewerProps) => {
+  const fileName = getFilename(filePath);
   const fileContent = extractCodeFromFilePath(filePath);
 
   const npmCommandShadcnuiComponents = shadcnuiComponentsUsed?.length
@@ -107,7 +112,7 @@ export const ComponentViewer = ({
             <>{componentPreview}</>
           </TabsContent>
           <TabsContent value="code">
-            <CodePreview code={fileContent}>
+            <CodePreview code={fileContent} fileName={fileName}>
               <CodeRenderer code={fileContent} lang="tsx" />
             </CodePreview>
           </TabsContent>
