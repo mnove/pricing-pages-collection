@@ -12,13 +12,8 @@ export default async function CodeRenderer({ code, lang }: CodeRenderer) {
   });
 
   return (
-    <div>
-      {/* <div className="max-h-[650px] overflow-auto rounded-md bg-zinc-800">
-        <div className="inline-block overflow-x-auto p-4 text-sm">
-          <div dangerouslySetInnerHTML={{ __html: html }} />
-        </div>
-      </div> */}
-      <div dangerouslySetInnerHTML={{ __html: html }} />
+    <div className="max-w-[100px] mt-7">
+      <span dangerouslySetInnerHTML={{ __html: html }} />
     </div>
   );
 }

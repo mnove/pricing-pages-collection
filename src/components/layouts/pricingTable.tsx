@@ -85,7 +85,7 @@ const featuresGroups: FeatureGroup[] = [
 export default function PricingSection() {
   return (
     <section className="p-0 md:p-4">
-      <div className=" py-2 relative">
+      <div className="py-2 relative">
         <div className="relative flex items-center sm:justify-center ml-4 sm:ml-0">
           <div className="hidden md:block w-full">
             <table className="table-auto w-full min-w-[600px]">

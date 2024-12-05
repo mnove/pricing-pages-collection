@@ -36,7 +36,7 @@ export default function PricingSection() {
     }
   };
   return (
-    <section className=" w-full py-0">
+    <section className="w-full py-0">
       <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
         <div className="mx-auto max-w-screen-md text-center mb-8 lg:mb-12 dark:text-gray-100">
           <h2 className="font-display text-2xl font-semibold tracking-tighter md:text-4xl md:leading-[4rem] drop-shadow-sm">
@@ -46,7 +46,7 @@ export default function PricingSection() {
             Here&apos;s a simple pricing table with extra descriptions and
             features
           </p>
-          <div className=" flex flex-row items-center justify-center space-x-2 text-center">
+          <div className="flex flex-row items-center justify-center space-x-2 text-center">
             <Tabs
               defaultValue="yearly"
               className=""
